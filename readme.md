@@ -1,3 +1,1 @@
-# Hello, Git! #
-
-Algo mudou...
+Hello Git
