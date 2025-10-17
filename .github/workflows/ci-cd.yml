@@ -19,7 +19,7 @@ jobs:
                 
             
           ##- name: Build imagem Docker
-          ##  run: docker build -t delivery-tech-t4:latest .
+          ##  run: docker build -t delivery-api:latest .
 
             - name: Build with Maven
               run: mvn clean package install -DskipTests=true
