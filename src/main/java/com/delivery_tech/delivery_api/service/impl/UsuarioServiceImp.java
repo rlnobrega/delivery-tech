@@ -1,18 +1,20 @@
 package com.delivery_tech.delivery_api.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
-
-import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.delivery_tech.delivery_api.dto.request.LoginRequest;
+import com.delivery_tech.delivery_api.dto.request.RegisterRequest;
 import com.delivery_tech.delivery_api.dto.response.LoginResponse;
+import com.delivery_tech.delivery_api.model.Role;
 import com.delivery_tech.delivery_api.model.Usuario;
 import com.delivery_tech.delivery_api.repository.UsuarioRepository;
 import com.delivery_tech.delivery_api.security.JwtUtil;
@@ -73,5 +75,58 @@ public class UsuarioServiceImp implements UsuarioService {
             throw new RuntimeException("Usuário não encontrado " + id);
     }
 
-    
+    // Método para inativar um usuário
+    @Override
+    public void inativarUsuario(Long id) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+        if (usuarioOpt.isPresent()) {
+            Usuario usuario = usuarioOpt.get();
+            usuario.setAtivo(false);
+            usuarioRepository.save(usuario);
+        } else {
+            throw new RuntimeException("Usuário não encontrado " + id);
+        }
+    }
+
+    // Método para verificação e busca por email
+    @Override
+    public boolean existePorEmail(String email) {
+        return usuarioRepository.findByEmail(email) != null;
+    }
+
+    @Override
+    public UserDetails buscarPorEmail(String email) {
+        UserDetails usario = usuarioRepository.findByEmail(email);
+        if (usario == null) {
+            throw new RuntimeException("Usuário não encontrado com o email: " + email);
+        }
+        return usario;
+    }
+
+    // Método para salvar
+    @Override
+    public Usuario salvar(RegisterRequest registerRequest) {
+        if (existePorEmail(registerRequest.getEmail())) {
+            throw new RuntimeException("Email já cadastrado: " + registerRequest.getEmail());
+        }
+
+        Usuario usuario = new Usuario();
+        usuario.setNome(registerRequest.getNome());
+        usuario.setEmail(registerRequest.getEmail());
+        usuario.setSenha(passwordEncoder.encode(registerRequest.getSenha()));
+        usuario.setAtivo(true);
+        usuario.setDataCriacao(LocalDateTime.now());
+
+        if (registerRequest.getRole() == null) {
+            usuario.setRole(Role.USER);
+        } else {
+            usuario.setRole(registerRequest.getRole());
+        }
+
+        return usuarioRepository.save(usuario);
+
+    }
+
 }
+            
+    
