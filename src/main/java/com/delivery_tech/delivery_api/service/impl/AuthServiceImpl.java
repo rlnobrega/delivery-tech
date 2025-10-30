@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.delivery_tech.delivery_api.dto.request.LoginRequest;
 import com.delivery_tech.delivery_api.dto.request.RegisterRequest;
 import com.delivery_tech.delivery_api.dto.response.LoginResponse;
+import com.delivery_tech.delivery_api.dto.response.UserResponse;
 import com.delivery_tech.delivery_api.model.Usuario;
 import com.delivery_tech.delivery_api.repository.UsuarioRepository;
 import com.delivery_tech.delivery_api.service.AuthService;
@@ -37,12 +38,11 @@ public class AuthServiceImpl implements UserDetailsService, AuthService {
 
     @Override
     public Usuario register(RegisterRequest request) {
-        throw new UnsupportedOperationException("Registro ainda não implementado"); 
+        throw new UnsupportedOperationException("Registro ainda não implementado");
     }
 
-/*     @Override
+    @Override
     public UserResponse getCurrentUser() {
         throw new UnsupportedOperationException("Usuário atual ainda não implementado");
     }
-     */
 }

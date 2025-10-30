@@ -3,6 +3,7 @@ package com.delivery_tech.delivery_api.service;
 import com.delivery_tech.delivery_api.dto.request.LoginRequest;
 import com.delivery_tech.delivery_api.dto.request.RegisterRequest;
 import com.delivery_tech.delivery_api.dto.response.LoginResponse;
+import com.delivery_tech.delivery_api.dto.response.UserResponse;
 import com.delivery_tech.delivery_api.model.Usuario;
 
 public interface AuthService {
@@ -14,6 +15,6 @@ public interface AuthService {
     Usuario register(RegisterRequest request);
 
     // Cluásula número 3: Deve saber como obter informações do usuário autenticado
-    //UserResponse getCurrentUser();
+    UserResponse getCurrentUser();
 
 }
