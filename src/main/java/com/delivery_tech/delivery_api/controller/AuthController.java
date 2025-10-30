@@ -2,15 +2,13 @@ package com.delivery_tech.delivery_api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import com.delivery_tech.delivery_api.dto.request.LoginRequest;
 import com.delivery_tech.delivery_api.dto.request.RegisterRequest;
@@ -20,15 +18,12 @@ import com.delivery_tech.delivery_api.model.Usuario;
 import com.delivery_tech.delivery_api.security.JwtUtil;
 import com.delivery_tech.delivery_api.service.UsuarioService;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 
 @RestController
 @RequestMapping("/api/auth")
