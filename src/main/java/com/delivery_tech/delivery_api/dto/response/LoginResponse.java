@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Schema(
     description = "Resposta quando realizar o login",
-    title = "Login Response DTO")
+    title = "Login Response DTO"
+)
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

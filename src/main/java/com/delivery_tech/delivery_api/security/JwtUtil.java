@@ -12,6 +12,8 @@ import java.util.Date;
 
 import javax.crypto.SecretKey;
 
+// Algoritmo HMAC-SHA256.
+
 @Component
 public class JwtUtil {
 

@@ -61,7 +61,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Registar um usuário", description = "Cadastrar um novo usuário na plataforma'")
+    @Operation(summary = "Registrar um usuário", description = "Cadastrar um novo usuário na plataforma'")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Registro salvo com"),
             @ApiResponse(responseCode = "400", description = "Registro inválido", content = @Content(schema = @Schema(implementation = Void.class))),

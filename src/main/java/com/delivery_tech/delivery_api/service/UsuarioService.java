@@ -9,7 +9,7 @@ import com.delivery_tech.delivery_api.model.Usuario;
 
 public interface UsuarioService {
 
-   Usuario salvar(RegisterRequest usuario);
+    Usuario salvar(RegisterRequest usuario);
 
     UserDetails buscarPorEmail(String email);
 

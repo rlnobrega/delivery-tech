@@ -12,29 +12,28 @@ public class HealthController {
     @GetMapping("/health")
     public Map<String, String> health() {
         return Map.of(
-            "status", "UP", 
-            "timestamp", LocalDateTime.now().toString(),
-            "service", "Delivery API",
-            "javaVersion", System.getProperty("java.version")
-            );
+                "status", "UP",
+                "timestamp", LocalDateTime.now().toString(),
+                "service", "Delivery API",
+                "javaVersion", System.getProperty("java.version"));
     }
 
     @GetMapping("/info")
     public AppInfo info() {
         return new AppInfo(
-            "Delivery Tech API", 
-            "1.0.0", 
-            "JDK 21", 
-            "Spring Boot 3.5.6"
-            );
+                "Delivery Tech API",
+                "1.0.0",
+                "JDK 21",
+                "Spring Boot 3.5.6");
     }
-        public record AppInfo(
+
+    public record AppInfo(
             String application,
             String version,
             String developer,
             String framework
             ) {
 
-        }
+    }
 
 }
