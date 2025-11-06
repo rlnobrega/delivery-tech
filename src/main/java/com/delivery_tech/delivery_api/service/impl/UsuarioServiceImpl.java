@@ -21,7 +21,7 @@ import com.delivery_tech.delivery_api.security.JwtUtil;
 import com.delivery_tech.delivery_api.service.UsuarioService;
 
 @Service
-public class UsuarioServiceImp implements UsuarioService {
+public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
