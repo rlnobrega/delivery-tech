@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -28,13 +29,15 @@ public class Restaurante {
 
     private String nome;
 
-    private String categgoria;
+    private String categoria;
 
     private String telefone;
 
     private BigDecimal avaliacao;
 
     private BigDecimal taxaEntrega;
+
+    private Integer tempoEntregaMinutos;
 
     private Boolean ativo = true;
 

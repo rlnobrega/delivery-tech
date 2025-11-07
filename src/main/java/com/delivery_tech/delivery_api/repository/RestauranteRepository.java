@@ -3,10 +3,9 @@ package com.delivery_tech.delivery_api.repository;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.delivery_tech.delivery_api.model.Restaurante;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import com.delivery_tech.delivery_api.model.Restaurante;
 public interface RestauranteRepository extends JpaRepository<Restaurante, Long> {
 
     List<Restaurante> findByCategoria(String categoria);

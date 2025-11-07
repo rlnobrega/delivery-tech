@@ -31,8 +31,9 @@ public class Pedido {
     private String observacoes;
 
     @Enumerated(EnumType.STRING)
-    private StatusPedido status;
+    private StatusPedido statusPedido;
 
+    @Builder.Default
     private LocalDateTime dataPedido = LocalDateTime.now();
 
     @ManyToMany(mappedBy = "pedido", cascade = CascadeType.ALL)

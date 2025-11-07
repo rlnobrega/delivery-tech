@@ -2,6 +2,7 @@ package com.delivery_tech.delivery_api.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,7 +23,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     List<Pedido> findByDataPedidoBetween(LocalDateTime inicio, LocalDateTime fim);
 
     @Query("SELECT p FROM Pedido p LEFT JOIN p.itens i LEFT JOIN i.produto WHERE p.id = :id")
-    List<Pedido> findByIdWithItens(@Param("id") Long id);
+    Optional<Pedido> findByIdWithItens(@Param("id") Long id);
 
     @Query("SELECT p FROM Pedido p LEFT JOIN FETCH p.itens i LEFT JOIN FETCH i.produto WHERE p.cliente.id = :clienteId")
     List<Pedido> findByClienteIdWithItens(@Param("clienteId") Long clienteId);
