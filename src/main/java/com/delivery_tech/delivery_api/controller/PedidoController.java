@@ -126,7 +126,7 @@ public class PedidoController {
     public ResponseEntity<PedidoResponse> adicionarItem(@PathVariable Long pedidoId,
                                                        @RequestParam Long produtoId,
                                                        @RequestParam Integer quantidade) {
-        Produto produto = produtoService.buscarPorId(produtoId)
+        produtoService.buscarPorId(produtoId)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
 
         Pedido pedidoAtualizado = pedidoService.adicionarItem(pedidoId, produtoId, quantidade);

@@ -5,10 +5,10 @@ import com.delivery_tech.delivery_api.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 
 import java.util.Arrays;
-
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -21,9 +21,6 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-
-    @Autowired
-    private PedidoRepository pedidoRepository;
 
     @Override
     public void run(String... args) throws Exception {

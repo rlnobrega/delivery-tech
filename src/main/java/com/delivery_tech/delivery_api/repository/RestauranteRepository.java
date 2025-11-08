@@ -10,11 +10,11 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
 
     List<Restaurante> findByCategoria(String categoria);
     List<Restaurante> findByAtivoTrue();
-    List<Restaurante> findByAvaliacaoGraterThanEqual(BigDecimal avaliacao);
+    List<Restaurante> findByAvaliacaoGreaterThanEqual(BigDecimal avaliacao);
     List<Restaurante> findByTaxaEntregaLessThanEqual(BigDecimal taxa);
 
     @Query("SELECT r.nome as nomeReastaurante, " +
-           "SUM(p.valorTotal) as totalVendas " +
+           "SUM(p.valorTotal) as totalVendas, " +
            "COUNT(p.id) as quantidadePedidos " +
            "FROM Restaurante r " +
            "LEFT JOIN Pedido p ON r.id = p.restaurante.id " +

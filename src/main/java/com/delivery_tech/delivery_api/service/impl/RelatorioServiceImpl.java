@@ -17,7 +17,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class RelatorioServiceImpl implements RelatorioService {
-
+    
+    @SuppressWarnings("unused")
     private final PedidoRepository pedidoRepository;
 
     @Override

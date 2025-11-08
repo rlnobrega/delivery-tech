@@ -1,0 +1,17 @@
+=== ENTREGA - TESTE DE ENDPOINT ===
+Data/Hora: 07/11/2025 23:55:49
+Método: POST
+URL Completa: http://localhost:8080/api/auth/login
+Status HTTP: 200
+Content-Type: application/json
+
+=== DADOS ENVIADOS ===
+{
+  "username" : "web@terra.com.br",
+  "password" : "123456"
+}
+
+=== RESPOSTA REAL ===
+{
+  "token" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3ZWJAdGVycmEuY29tLmJyIiwiaWF0IjoxNzYyNTcwNTQ5LCJleHAiOjE3NjI2NTY5NDl9.hqKmSI5SKyEiZFyR1hZ4LdGRtvn_phHHuEZbeHRdKoQ"
+}
